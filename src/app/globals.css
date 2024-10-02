@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-nunito: 'Nunito', sans-serif;
-  --font-poppins: 'Poppins', sans-serif;
-  --gradient-background: linear-gradient(#fff, #AF9cf3);
+  --font-nunito: "Nunito", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --gradient-background: linear-gradient(#fff, #af9cf3);
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -30,16 +31,122 @@ html, body {
 
   /* Thin scrollbar */
   .thin-scrollbar {
-    scrollbar-width: thin;  /* Firefox */
+    scrollbar-width: thin; /* Firefox */
   }
   .thin-scrollbar::-webkit-scrollbar {
-    width: 6px;  /* Width of the scrollbar */
+    width: 6px; /* Width of the scrollbar */
   }
   .thin-scrollbar::-webkit-scrollbar-track {
-    background: transparent;  /* Track color */
+    background: transparent; /* Track color */
   }
   .thin-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(155, 155, 155, 0.5);  /* Thumb color */
-    border-radius: 20px;  /* Rounded corners */
+    background-color: rgba(155, 155, 155, 0.5); /* Thumb color */
+    border-radius: 20px; /* Rounded corners */
   }
+}
+.progress_circle_wrap {
+  background-color: #fff;
+  border-radius: 50%;
+  /* background: radial-gradient(white 50%, transparent 51%),
+    conic-gradient(transparent 0deg 360deg, gainsboro 220deg 360deg),
+    conic-gradient(#44B77B 0deg, #44B77B ); */
+  /* width: 120px;
+  height: 120px; */
+}
+.progress_circle_counter {
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 96px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.progress_circle_current_step {
+  font-family: Nunito;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 96px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.progress_circle_background {
+  fill: #fff;
+  stroke: #ddd;
+}
+.progress_circle_progress {
+  fill: none;
+  stroke: #44b77b;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.result_meter_round {
+  border-radius: 50%;
+  background: radial-gradient(white 66%, transparent 51%),
+    conic-gradient(transparent 0deg 180deg, white 180deg),
+    conic-gradient(#ff3b3f 0deg, #ffd033 90deg, #44b77b 180deg);
+  transform: rotate(-90deg);
+  stroke-linecap: round;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+}
+
+.result_meter_round2 {
+  border-radius: 50%;
+  background: radial-gradient(white 0%, transparent 51%),
+    conic-gradient(transparent 0deg 240deg, white 240deg),
+    conic-gradient(#ebedf5 0deg, #ebedf5 240deg);
+  transform: rotate(-30deg);
+  width: 215px;
+  height: 215px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result_meter_round3 {
+  transform: rotate(120deg);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.result_meter_round4 {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 10px 15px #eaedf5;
+}
+.result_meter_round5 {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ebedf5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Nunito;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 35px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.result_meter {
+  margin-top: -66px;
 }
