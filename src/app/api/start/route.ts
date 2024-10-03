@@ -14,7 +14,9 @@ export async function GET(request: NextRequest) {
 
   const question = {
     ...quizQuestions[index],
-    correct: undefined // Remove correct answer from client-side data
+    correct: undefined, // Remove correct answer from client-side data
+    type: quizQuestions[index].type,
+    time: quizQuestions[index].time
   };
 
   return NextResponse.json({

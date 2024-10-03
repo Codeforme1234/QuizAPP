@@ -7,7 +7,7 @@ const ProgressCircle = ({ current, total }: { current: number; total: number }) 
   const dashOffset = dashArray - (dashArray * ((current * 100) / total)) / 100;
 
   return (
-    <div className="progress_circle_wrap">
+    <div className="">
       <svg
         width={circleWidth}
         height={circleWidth}

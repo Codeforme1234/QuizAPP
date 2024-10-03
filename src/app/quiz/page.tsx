@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from "react";
 import Btn from "../Components/UI/Btn";
 import { useRouter, useSearchParams } from "next/navigation";
+import { upperDesignItems } from "@/public/images/index";
+import Image from "next/image";
+import ProgressCircle from "../Components/UI/ProgressCircle";
 
 const Page = () => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -82,26 +85,31 @@ const Page = () => {
   if (!question) return <div>No question available</div>;
 
   return (
-    <div className="relative bg-[#AF9CF3] bg-blend-multiply h-[90vh] md:h-screen w-screen font-[var(--font-nunito)]">
-      <div className="h-[20%] bg-[#AF9CF3] w-full"></div>
+    <div className="relative bg-[#AF9CF3] bg-blend-multiply h-[100dvh] w-screen font-[var(--font-nunito)]">
+      <div className="h-[20%]  flex items-center justify-center bg-[#AF9CF3] w-full">
+        <Image
+          src={upperDesignItems}
+          alt="upperDesignItems"
+          height={25}
+          width={25}
+          className="w-full absolute top-0 md:w-[60vw] "
+        />
+      </div>
       <div className="bg-white relative rounded-t-[40px] md:rounded-[40px] shadow-lg h-[80%] md:h-[70%] w-full md:w-[60vw] mx-auto flex flex-col items-center">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="h-[150px] bg-white flex items-center justify-center aspect-square rounded-full">
-            <div className="h-[130px] flex bg-[#F3F4FA] items-center justify-center aspect-square rounded-full">
-              <div className="h-[110px] flex bg-white items-center justify-center aspect-square rounded-full">
-                <div className="text-[76px] text-black italic font-black">
-                  {currentQuestionIndex + 1}
-                </div>
-                <div className="text-[24px] text-gray-500 mt-8 font-bold">
-                  /{totalQuestions}
-                </div>
-              </div>
-            </div>
+          <div className="h-[100px] bg-white flex items-center justify-center aspect-square rounded-full">
+            <ProgressCircle
+              current={currentQuestionIndex + 1}
+              total={totalQuestions}
+            />
           </div>
         </div>
-        <div className="w-full flex flex-col justify-between h-full px-4 pt-[100px]">
-          <div className="text-[24px] ps-3 text-xl font-semibold">
+        <div className="w-full flex flex-col justify-between h-full px-4 pt-[60px]">
+          <div className="text-[24px] max-w-[80%] font-nunito font-semibold ps-5 text-2xl ">
             {question.text}
+          </div>
+          <div className="text-lg font-nunito absolute right-0 font-semibold pe-7">
+            {question.type}
           </div>
           <div className="flex flex-col h-[70%] space-y-4 p-3 thin-scrollbar overflow-auto mt-7">
             {question.options.map((option: string, index: number) => (

@@ -13,7 +13,7 @@ export default function Home() {
     router.push(`/quiz?quizId=${data.quizId}`);
   };
   return (
-    <div className="flex p-5 mainpage items-center h-[93vh] justify-between flex-col md:h-screen w-screen">
+    <div className="flex p-5 mainpage items-center h-[100dvh] justify-between flex-col md:h-screen w-screen">
       <div className="flex flex-row space-x-1 items-center justify-center">
         <div>
           <Image src={logo} alt="logo" height={25} width={25} />
