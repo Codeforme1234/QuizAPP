@@ -1,6 +1,6 @@
 // app/api/submit/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { quizAnswers } from "@/app/data/mockData";
+import { quizAnswers, quizResult } from "@/app/data/mockData";
 
 
 export async function POST(request: NextRequest) {
@@ -20,7 +20,15 @@ export async function POST(request: NextRequest) {
 
     const isCorrect = question.correct.includes(selectedOption);
 
-    return NextResponse.json({ isCorrect });
+    // Update quizResult
+    quizResult.totalQuestions++;
+    if (isCorrect) {
+      quizResult.score++;
+    }
+    
+    console.log(quizResult);
+
+    return NextResponse.json({ isCorrect, quizResult });
   } catch (error) {
     console.error("Error processing request:", error);
     return NextResponse.json(

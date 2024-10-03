@@ -82,9 +82,9 @@ const Page = () => {
   if (!question) return <div>No question available</div>;
 
   return (
-    <div className="relative bg-[#AF9CF3] bg-blend-multiply h-screen w-screen font-[var(--font-nunito)]">
-      <div className="h-[20vh] bg-[#AF9CF3] w-full"></div>
-      <div className="bg-white relative rounded-t-[40px] md:rounded-[40px] shadow-lg h-[80vh] md:h-[70vh] w-full md:w-[60vw] mx-auto flex flex-col items-center">
+    <div className="relative bg-[#AF9CF3] bg-blend-multiply h-[90vh] md:h-screen w-screen font-[var(--font-nunito)]">
+      <div className="h-[20%] bg-[#AF9CF3] w-full"></div>
+      <div className="bg-white relative rounded-t-[40px] md:rounded-[40px] shadow-lg h-[80%] md:h-[70%] w-full md:w-[60vw] mx-auto flex flex-col items-center">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="h-[150px] bg-white flex items-center justify-center aspect-square rounded-full">
             <div className="h-[130px] flex bg-[#F3F4FA] items-center justify-center aspect-square rounded-full">

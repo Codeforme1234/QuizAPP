@@ -11,8 +11,8 @@ const SemiCircleGauge = ({ percentage }: { percentage: number }) => {
       needleColor: "#1E1E28",
       needleUpdateSpeed: 1000,
       arcColors: ["rgba(0, 0, 0,0)", "rgba(0, 0, 0,0)"],
-      // arcDelimiters: [percentage],
-      // rangeLabel: ['0', '100'],
+    //   arcDelimiters: [percentage],
+    //   rangeLabel: ['0', '100'],
       centralLabel: " ",
     };
 
@@ -25,7 +25,7 @@ const SemiCircleGauge = ({ percentage }: { percentage: number }) => {
         <div className="result_meter_round3">
           <div className="result_meter" ref={chart}></div>
           <div className="result_meter_round4">
-            <div className="result_meter_round5">{percentage}%</div>
+            <div className="result_meter_round5">{30}%</div>
           </div>
         </div>
       </div>

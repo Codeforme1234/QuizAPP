@@ -1,13 +1,19 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// app/api/result/route.ts
+import { NextRequest, NextResponse } from "next/server";
+import { quizResult } from "@/app/data/mockData";  // Assuming quizResult contains the final result data
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const { quizId } = req.body;
-    // For now, we simulate a score calculation
-    const totalScore = 60; // Mock score
-    const TotalQuestions = 10; // Define TotalQuestions (adjust the value as needed)
-    return res.status(200).json({ score: totalScore, TotalQuestions });
-  } else {
-    return res.status(405).json({ message: "Method Not Allowed" });
+export async function POST(request: NextRequest) {
+  try {
+    // You can extract any needed data from the request body if necessary
+    const result = { ...quizResult };
+
+    // Send the result as a response
+    return NextResponse.json(result);
+  } catch (error) {
+    console.error("Error fetching result:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch result" },
+      { status: 500 }
+    );
   }
 }

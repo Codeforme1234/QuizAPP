@@ -32,4 +32,9 @@ const quizAnswers = [
   { id: 4, correct: [0] },
 ];
 
-export { quizQuestions, quizAnswers };
+const quizResult = {
+  score: 0,
+  totalQuestions: 0,
+};
+
+export { quizQuestions, quizAnswers, quizResult };
