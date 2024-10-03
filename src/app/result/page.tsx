@@ -1,11 +1,24 @@
+// app/result/page.tsx
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { upperDesignItems } from "@/public/images";
 import Image from "next/image";
 import Btn from "../Components/UI/Btn";
 import SemiCircleGauge from "../Components/UI/CircularGauge";
 
 const page = () => {
+  const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    const fetchResult = async () => {
+      const res = await fetch(`/api/result`, { method: "POST" });
+      console.log(res);
+      const data = await res.json();
+      console.log(data);
+      setScore(data.score);
+    };
+    fetchResult();
+  }, []);
 
   return (
     <div className="relative bg-[#AF9CF3] bg-blend-multiply h-full w-full font-[var(--font-nunito)]">

@@ -1,8 +1,17 @@
+// app/page.tsx
+"use client";
 import Image from "next/image";
 import { logo } from "@/public/images/index";
 import Btn from "./Components/UI/Btn";
 import { useRouter } from "next/navigation";
 export default function Home() {
+  const router = useRouter();
+  const startQuiz = async () => {
+    const res = await fetch("/api/start");
+    const data = await res.json();
+    console.log(data);
+    router.push(`/quiz?quizId=${data.quizId}`);
+  };
   return (
     <div className="flex p-5 mainpage items-center justify-between flex-col h-screen w-screen">
       <div className="flex flex-row space-x-1 items-center justify-center">
@@ -17,7 +26,7 @@ export default function Home() {
           QUIZ
         </div>
       </div>
-      <div>
+      <div onClick={startQuiz}>
         <Btn text="Start Quiz" className="text-white w-[315px] h-[60px]" />
       </div>
     </div>
