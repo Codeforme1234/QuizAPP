@@ -39,7 +39,7 @@ const Page = () => {
     }
   }, [quizId, currentQuestionIndex]);
 
-  // Function to handle submitting the answer
+  // Modify the submitAnswer function
   const submitAnswer = async () => {
     if (selectedOption === null) return;
 
@@ -63,7 +63,8 @@ const Page = () => {
       // Move to the next question or show result if quiz is finished
       if (currentQuestionIndex < totalQuestions - 1) {
         setSelectedOption(null); // Reset selected option
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Update question index to load next question
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Update question index
+        fetchQuestion(currentQuestionIndex + 1); // Fetch the next question
       } else {
         // If last question, show result
         router.push(
