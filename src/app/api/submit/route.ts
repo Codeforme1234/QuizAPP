@@ -2,11 +2,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { quizAnswers, quizResult } from "@/app/data/mockData";
 
-
 export async function POST(request: NextRequest) {
   try {
-    const { quizId, questionId, selectedOption, timeTaken } =
-      await request.json();
+    const { quizId, questionId, selectedOptions, timeTaken } = await request.json();
 
     // Find the question from the quiz
     const question = quizAnswers.find((q: any) => q.id === questionId);
@@ -18,7 +16,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const isCorrect = question.correct.includes(selectedOption);
+    // Check if the question is a multiple-choice question
+    const isCorrect = question.correct.length === selectedOptions.length &&
+      selectedOptions.every((option: number) => question.correct.includes(option));
 
     // Update quizResult
     quizResult.totalQuestions++;

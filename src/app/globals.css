@@ -31,7 +31,7 @@ body {
 
   /* Thin scrollbar */
   .thin-scrollbar {
-    scrollbar-width: thin; /* Firefox */
+    scrollbar-width:thin; /* Firefox */
   }
   .thin-scrollbar::-webkit-scrollbar {
     width: 6px; /* Width of the scrollbar */
@@ -76,6 +76,18 @@ body {
   fill: #fff;
   stroke: #ddd;
 }
+.progress1_circle_background {
+  fill: none;
+  stroke: #ddd;
+}
+
+.progress_circle_progress_red {
+  fill: none;
+  stroke: #ff3b3f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .progress_circle_progress {
   fill: none;
   stroke: #44b77b;

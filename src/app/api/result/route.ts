@@ -4,11 +4,12 @@ import { quizResult } from "@/app/data/mockData";  // Assuming quizResult contai
 
 export async function POST(request: NextRequest) {
   try {
-    // You can extract any needed data from the request body if necessary
-    const result = { ...quizResult };
-
     // Send the result as a response
-    return NextResponse.json(result);
+    return NextResponse.json({
+      score: quizResult.score,
+      totalQuestions: quizResult.totalQuestions,
+      percentage: (quizResult.score / quizResult.totalQuestions) * 100,
+    });
   } catch (error) {
     console.error("Error fetching result:", error);
     return NextResponse.json(
