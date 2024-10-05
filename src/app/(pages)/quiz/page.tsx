@@ -1,15 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Btn from "../../Components/UI/Btn";
 import { useRouter, useSearchParams } from "next/navigation";
-import {upperDesignItems} from "../../../Public/Images/index"
+import { upperDesignItems } from "../../../Public/Images/index";
 import Image from "next/image";
 import ProgressCircle from "../../Components/UI/ProgressCircle";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Suspense } from "react";
 
-const Page = () => {
+// Create a separate client-side component to use `useSearchParams()`
+const QuizPageClient = () => {
   const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
   const [question, setQuestion] = useState<any>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -20,7 +20,6 @@ const Page = () => {
   const quizId = searchParams.get("quizId");
   const router = useRouter();
 
-  // Function to fetch the current question based on index
   const fetchQuestion = async (index: number) => {
     setLoading(true);
     try {
@@ -36,7 +35,6 @@ const Page = () => {
     }
   };
 
-  // Fetch the initial question and also when currentQuestionIndex changes
   useEffect(() => {
     if (quizId) {
       fetchQuestion(currentQuestionIndex);
@@ -45,22 +43,18 @@ const Page = () => {
     }
   }, [quizId, currentQuestionIndex]);
 
-  // Toggle multiple options if question type is "multiple"
   const toggleOption = (index: number) => {
     setSelectedOptions((prev) => {
       if (question.type === "Multiple Choice") {
-        // Toggle the option for multiple-choice questions
         return prev.includes(index)
-          ? prev.filter((i) => i !== index) // Unselect if already selected
-          : [...prev, index]; // Add to selection
+          ? prev.filter((i) => i !== index)
+          : [...prev, index];
       } else {
-        // For single-choice questions, only one option can be selected
         return [index];
       }
     });
   };
 
-  // Submit the answer
   const submitAnswer = async () => {
     if (selectedOptions.length === 0) return;
 
@@ -71,8 +65,8 @@ const Page = () => {
         body: JSON.stringify({
           quizId,
           questionId: question.id,
-          selectedOptions, // This can be multiple for multi-choice questions
-          timeTaken: 10, // Replace with actual time
+          selectedOptions,
+          timeTaken: 10,
         }),
       });
 
@@ -81,13 +75,11 @@ const Page = () => {
       const data = await res.json();
       setScore((prevScore) => prevScore + (data.isCorrect ? 1 : 0));
 
-      // Move to the next question or show result if quiz is finished
       if (currentQuestionIndex < totalQuestions - 1) {
-        setSelectedOptions([]); // Reset selected options
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Update question index
-        fetchQuestion(currentQuestionIndex + 1); // Fetch the next question
+        setSelectedOptions([]);
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        fetchQuestion(currentQuestionIndex + 1);
       } else {
-        // If last question, show result
         router.push(
           `/result?score=${
             score + (data.isCorrect ? 1 : 0)
@@ -98,6 +90,7 @@ const Page = () => {
       console.error("Error submitting answer:", error);
     }
   };
+
   const renderMedia = (media: { type: string; url: string }) => {
     if (!media) return null;
 
@@ -168,7 +161,6 @@ const Page = () => {
             </span>
           </div>
 
-          {/* Render Media (Image, Video, or GIF) */}
           <div className="my-2 flex w-full justify-center">
             {renderMedia(question.media)}
           </div>
@@ -228,15 +220,22 @@ const Page = () => {
             />
           </div>
         </div>
-        <div className=" z-0 flex w-full h-[92%] my-1 flex-col justify-between overflow-hidden rounded-lg  pt-[60px]">
-          <div className=" overflow-auto w-full thin-scrollbar">
-            <Suspense fallback={<div>Loading question...</div>}>
-              {renderContent()}
-            </Suspense>
+        <div className="z-0 flex w-full h-[92%] my-1 flex-col justify-between overflow-hidden rounded-lg pt-[60px]">
+          <div className="overflow-auto w-full thin-scrollbar">
+            {renderContent()}
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+// Wrap the page component in a Suspense boundary
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading page...</div>}>
+      <QuizPageClient />
+    </Suspense>
   );
 };
 
