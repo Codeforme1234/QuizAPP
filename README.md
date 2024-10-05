@@ -26,15 +26,15 @@ You can find the live version of the app [here](https://upraised.codeforme.tech/
 
 #Desktop View
 
-![Home Screen](./public/readme/D1.png)
-![Question Screen](./public/readme/D2.png)
-![Report Screen](./public/readme/D3.png)
+![Home Screen](src/app/public/readme/D1.png)
+![Question Screen](src/app/public/readme/D2.png)
+![Report Screen](src/app/public/readme/D3.png)
 
 #Mobile View
 
-![Home Screen](./public/readme/P1.png)
-![Question Screen](./public/readme/P2.png)
-![Report Screen](./public/readme/P3.png)
+![Home Screen](src/app/public/readme/P1.png)
+![Question Screen](src/app/public/readme/P2.png)
+![Report Screen](src/app/public/readme/P3.png)
 
 ## Getting Started
 
