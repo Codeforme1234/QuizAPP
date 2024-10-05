@@ -1,0 +1,10 @@
+Dockerfile
+next-env.d.ts   
+.Dockerfile
+next
+node_modules
+npm-debug.log
+README.md
+!.next/static
+!.next/standalone
+.git

@@ -1,5 +1,5 @@
 import React from "react";
-import { rightArrow } from "@/Public/Images/index";
+import { rightArrow } from "../../public/Images/index";
 import Image from "next/image";
 
 interface ButtonProps {

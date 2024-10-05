@@ -2,7 +2,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import Btn from "../../Components/UI/Btn";
 import { useRouter, useSearchParams } from "next/navigation";
-import { upperDesignItems } from "../../../Public/Images/index";
+import { upperDesignItems } from "../../public/Images/index";
 import Image from "next/image";
 import ProgressCircle from "../../Components/UI/ProgressCircle";
 import Skeleton from "react-loading-skeleton";
@@ -102,7 +102,7 @@ const QuizPageClient = () => {
             alt="Question Media"
             width={100}
             height={100}
-            className="w-[70%] md:w-[10%] rounded-xl shadow-lg"
+            className="w-[70%] md:w-[30%] rounded-xl shadow-lg"
           />
         );
       case "video":
@@ -200,6 +200,7 @@ const QuizPageClient = () => {
               currentQuestionIndex === totalQuestions - 1 ? "Finish" : "Next"
             }
             className="w-[50%] h-[50px] text-white"
+            isLoading={loading}
           />
         </div>
       </>

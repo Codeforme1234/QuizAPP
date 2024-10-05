@@ -36,8 +36,8 @@ const quizQuestions = [
     id: 4,
     text: "I am selected for the next round?",
     media: {
-      type: "gif",
-      url: "https://media1.tenor.com/m/0jC_8IMenacAAAAC/bumble-christmas.gif",
+      type: "image",
+      url: "https://static.wikia.nocookie.net/obfcbt-wiki/images/7/7b/Verbalase_to_the_quarter_rounds.png/revision/latest/scale-to-width-down/1200?cb=20201227030332",
     },
     options: ["Yes", "If not you, then who?"],
     type: "Single Choice",

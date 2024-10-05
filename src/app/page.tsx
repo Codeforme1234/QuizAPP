@@ -2,7 +2,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { logo } from "@/Public/Images/index";
+import { logo } from "./public/Images/index";
 import Btn from "./Components/UI/Btn";
 import { useRouter } from "next/navigation";
 
