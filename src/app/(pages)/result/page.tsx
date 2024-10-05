@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Btn from "../../Components/UI/Btn";
 import SemiCircleGauge from "../../Components/UI/CircularGauge";
-import upperDesignItems from "../../../public/images/upperDesignItems.svg";
+import { upperDesignItems } from "../../../Public/Images/index";
 import Image from "next/image";
 
 const ResultPage = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import rightArrow from "../../../public/images/arrow-sm-right-svgrepo-com.svg";
+import { rightArrow } from "@/Public/Images/index";
 import Image from "next/image";
 
 interface ButtonProps {

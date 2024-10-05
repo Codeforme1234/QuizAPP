@@ -2,12 +2,11 @@
 import React, { useState, useEffect } from "react";
 import Btn from "../../Components/UI/Btn";
 import { useRouter, useSearchParams } from "next/navigation";
-import upperDesignItems from "../../../public/images/upperDesignItems.svg";
+import {upperDesignItems} from "../../../Public/Images/index"
 import Image from "next/image";
 import ProgressCircle from "../../Components/UI/ProgressCircle";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import CountdownBar from "../../Components/UI/CountDownCircle";
 import { Suspense } from "react";
 
 const Page = () => {
@@ -235,7 +234,6 @@ const Page = () => {
               {renderContent()}
             </Suspense>
           </div>
-          {/* <CountdownBar duration={question?.time} /> */}
         </div>
       </div>
     </div>

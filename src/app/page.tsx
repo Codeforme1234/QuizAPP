@@ -1,7 +1,7 @@
 // app/page.tsx
 "use client";
 import Image from "next/image";
-import logo from "../Public/Images/Group.svg";
+import { logo } from "@/Public/Images/index";
 import Btn from "./Components/UI/Btn";
 import { useRouter } from "next/navigation";
 export default function Home() {
