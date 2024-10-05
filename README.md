@@ -17,7 +17,6 @@ You can find the live version of the app [here](https://upraised.codeforme.tech/
 
 - **Frontend**: React with Next.js
 - **Backend**: Next.js API routes (for mock API)
-- **State Management**: React hooks (useState, useEffect)
 - **Styling**: CSS and Tailwind CSS
 - **API Mocking**: Implemented via Next.js API routes
 - **Deployment**: Deployed on Vercel
@@ -25,9 +24,17 @@ You can find the live version of the app [here](https://upraised.codeforme.tech/
 
 ## Some Screenshots
 
-![Home Screen](./public/Images/home.png)
-![Question Screen](./public/Images/question.png)
-![Report Screen](./public/Images/report.png)
+#Desktop View
+
+![Home Screen](./public/readme/D1.png)
+![Question Screen](./public/readme/D2.png)
+![Report Screen](./public/readme/D3.png)
+
+#Mobile View
+
+![Home Screen](./public/readme/P1.png)
+![Question Screen](./public/readme/P2.png)
+![Report Screen](./public/readme/P3.png)
 
 ## Getting Started
 
@@ -43,5 +50,6 @@ To get a local copy up and running, follow these steps:
 
 1. Clone the repo
    ```bash
-   git clone https://github.com/your-repo-name/quiz-web-app.git
-   cd quiz-web-app
+   git clone https://github.com/Codeforme1234/QuizAPP
+   cd quizAPP
+   ```
