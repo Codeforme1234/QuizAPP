@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Btn from "../../Components/UI/Btn";
 import { useRouter, useSearchParams } from "next/navigation";
-import { upperDesignItems } from "@/public/images/index";
+import { upperDesignItems } from "@/public/images/index.js";
 import Image from "next/image";
 import ProgressCircle from "../../Components/UI/ProgressCircle";
 import Skeleton from "react-loading-skeleton";
