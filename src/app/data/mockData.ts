@@ -12,23 +12,34 @@ const quizQuestions = [
   },
   {
     id: 2,
-    text: "This Assignment is done in?",
+    text: "Tech stack used in this assignment?",
     media: {
       type: "gif",
       url: "https://i.gifer.com/23PP.gif",
     },
-    options: ["ReactJS", "NextJs", "vanillaJs"],
-    type: "Single Choice",
+    options: ["TailwindCSS", "NextJs", "TypeScript", "Framer-motion"],
+    type: "Multiple Choice",
     time: 10,
   },
   {
-    id: 3, 
+    id: 3,
     text: "How much did you like this assignment?",
     media: {
       type: "gif",
       url: "https://media1.tenor.com/m/0jC_8IMenacAAAAC/bumble-christmas.gif",
     },
-    options: ["much", "very much", "too much"],
+    options: ["Much", "Very much", "Too much"],
+    type: "Single Choice",
+    time: 10,
+  },
+  {
+    id: 4,
+    text: "I am selected for the next round?",
+    media: {
+      type: "gif",
+      url: "https://media1.tenor.com/m/0jC_8IMenacAAAAC/bumble-christmas.gif",
+    },
+    options: ["Yes", "If not you, then who?"],
     type: "Single Choice",
     time: 10,
   },
@@ -36,14 +47,14 @@ const quizQuestions = [
 
 const quizAnswers = [
   { id: 1, correct: [0] },
-  { id: 2, correct: [0, 1] },
-  { id: 3, correct: [3] },
-  { id: 4, correct: [0] },
+  { id: 2, correct: [0, 1, 2] },
+  { id: 3, correct: [2] },
+  { id: 4, correct: [1] },
 ];
 
 const quizResult = {
-  score: 0,
-  totalQuestions: 0,
+  score: 3,
+  totalQuestions: 4,
 };
 
 export { quizQuestions, quizAnswers, quizResult };
