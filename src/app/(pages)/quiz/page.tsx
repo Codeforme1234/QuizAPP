@@ -169,20 +169,26 @@ const QuizPageClient = () => {
             {question.options.map((option: string, index: number) => (
               <button
                 key={index}
-                className={`flex items-center text-[18px] min-h-[4rem] font-semibold py-3 px-6 bg-[#F3F4FA] rounded-lg text-left hover:bg-[#E0E1E7] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#AF9CF3] ${
-                  selectedOptions.includes(index) ? "bg-[#AF9CF3]" : ""
+                className={`flex items-center text-[18px] min-h-[4rem] font-semibold py-3 px-6 bg-[#F3F4FA] rounded-lg text-left hover:bg-[#E0E1E7] transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-green-500 ${
+                  selectedOptions.includes(index) ? "border-2 border-green-500" : ""
                 }`}
                 onClick={() => toggleOption(index)}
               >
                 <span
-                  className={`w-4 h-4 ${
-                    question.type === "multiple" ? "rounded" : "rounded-full"
-                  } mr-4 border-2 border-[#AF9CF3] ${
+                  className={`w-6 h-6 flex items-center justify-center mr-4 border-2 ${
                     selectedOptions.includes(index)
-                      ? "bg-[#AF9CF3]"
-                      : "bg-transparent"
-                  } transition-colors duration-300`}
-                ></span>
+                      ? "border-green-500 bg-green-500 text-white"
+                      : "border-[#AF9CF3] bg-transparent"
+                  } transition-colors duration-300 ${
+                    question.type === "Multiple Choice" ? "rounded" : "rounded-full"
+                  }`}
+                >
+                  {selectedOptions.includes(index) && (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                </span>
                 {option}
               </button>
             ))}

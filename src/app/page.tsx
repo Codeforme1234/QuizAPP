@@ -1,17 +1,29 @@
 // app/page.tsx
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import { logo } from "@/Public/Images/index";
 import Btn from "./Components/UI/Btn";
 import { useRouter } from "next/navigation";
+
 export default function Home() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   const startQuiz = async () => {
-    const res = await fetch("/api/start");
-    const data = await res.json();
-    console.log(data);
-    router.push(`/quiz?quizId=${data.quizId}`);
+    setIsLoading(true);
+    try {
+      const res = await fetch("/api/start");
+      const data = await res.json();
+      console.log(data);
+      router.push(`/quiz?quizId=${data.quizId}`);
+    } catch (error) {
+      console.error("Error starting quiz:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   return (
     <div className="flex p-5 mainpage items-center h-[100dvh] justify-between flex-col md:h-screen w-screen">
       <div className="flex flex-row space-x-1 items-center justify-center">
@@ -27,7 +39,12 @@ export default function Home() {
         </div>
       </div>
       <div onClick={startQuiz}>
-        <Btn text="Start Quiz" className="text-white w-[315px] h-[60px]" />
+        <Btn
+          text="Start Quiz"
+          className="text-white w-[315px] h-[60px]"
+          isLoading={isLoading}
+          onClick={startQuiz}
+        />
       </div>
     </div>
   );
